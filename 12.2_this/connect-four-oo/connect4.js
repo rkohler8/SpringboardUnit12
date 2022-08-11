@@ -35,13 +35,16 @@ class Game {
     // so that we can remove the event listener correctly later
     this.handleGameClick = this.handleClick.bind(this);
     top.addEventListener("click", this.handleGameClick);
-  
+
+    const playLabel = document.createElement("label");
+    playLabel.innerText = '← Click this row to drop a piece!';
+    
     for (let x = 0; x < this.WIDTH; x++) {
       const headCell = document.createElement('td');
       headCell.setAttribute('id', x);
       top.append(headCell);
     }
-  
+    top.append(playLabel);
     board.append(top);
   
     // make main part of board
